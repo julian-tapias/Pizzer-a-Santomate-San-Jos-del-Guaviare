@@ -1,0 +1,479 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pizzería Santomate | San José del Guaviare</title>
+<meta name="description" content="Disfruta las pizzas de Pizzería Santomate. Visítanos en San José del Guaviare o pide por WhatsApp.">
+
+<style>
+:root {
+  --rojo: #c92e25;
+  --oscuro: #171512;
+  --crema: #fff6e8;
+  --dorado: #f4b942;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--crema);
+  color: var(--oscuro);
+}
+
+header {
+  background: #171512;
+  color: white;
+  padding: 18px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.logo span { color: var(--dorado); }
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+nav a:hover { color: var(--dorado); }
+
+.hero {
+  min-height: 570px;
+  display: flex;
+  align-items: center;
+  padding: 70px 8%;
+  color: white;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.88), rgba(0,0,0,.25)),
+    url("https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+}
+
+.hero-content { max-width: 620px; }
+
+.etiqueta {
+  color: var(--dorado);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: clamp(42px, 7vw, 76px);
+  line-height: 1.05;
+  margin: 20px 0;
+}
+
+h1 span { color: var(--dorado); }
+
+.hero p {
+  color: #eee;
+  line-height: 1.8;
+  font-size: 17px;
+}
+
+.botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: .2s;
+}
+
+.btn:hover { transform: translateY(-3px); }
+
+.btn-rojo {
+  background: var(--rojo);
+  color: white;
+}
+
+.btn-claro {
+  border: 1px solid white;
+  color: white;
+}
+
+.datos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: white;
+  padding: 28px 7%;
+  gap: 20px;
+  text-align: center;
+}
+
+.dato strong {
+  display: block;
+  font-size: 21px;
+  margin-bottom: 7px;
+}
+
+.dato span { color: #68615a; font-size: 14px; }
+
+section { padding: 75px 8%; }
+
+.seccion-titulo {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.seccion-titulo h2 {
+  font-size: clamp(28px, 4vw, 40px);
+  margin-bottom: 12px;
+}
+
+.seccion-titulo p {
+  color: #70675e;
+  line-height: 1.7;
+}
+
+.menu {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.plato {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px #0000000c;
+  transition: .25s;
+}
+
+.plato:hover { transform: translateY(-6px); }
+
+.plato img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.plato-info { padding: 22px; }
+
+.plato h3 {
+  font-size: 21px;
+  margin-bottom: 10px;
+}
+
+.plato p {
+  color: #716a62;
+  line-height: 1.6;
+  font-size: 14px;
+  min-height: 45px;
+}
+
+.plato a {
+  display: block;
+  margin-top: 18px;
+  color: var(--rojo);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.nosotros {
+  background: #201d19;
+  color: white;
+  text-align: center;
+}
+
+.nosotros p {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #ddd2c5;
+  line-height: 1.9;
+}
+
+.nosotros h2 {
+  font-size: 35px;
+  margin-bottom: 20px;
+}
+
+.estrellas {
+  color: var(--dorado);
+  font-size: 25px;
+  margin: 18px 0;
+}
+
+.reseñas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.reseña {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+}
+
+.reseña p {
+  line-height: 1.7;
+  color: #615950;
+  margin: 12px 0;
+}
+
+.reseña strong { font-size: 15px; }
+
+.contacto {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px;
+  align-items: center;
+}
+
+.contacto h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.contacto p {
+  color: #615950;
+  line-height: 1.9;
+  margin-bottom: 12px;
+}
+
+.mapa {
+  width: 100%;
+  min-height: 320px;
+  border: 0;
+  border-radius: 15px;
+}
+
+footer {
+  text-align: center;
+  background: #171512;
+  color: #ddd;
+  padding: 30px 15px;
+  line-height: 1.8;
+}
+
+footer span { color: var(--dorado); }
+
+.whatsapp {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  z-index: 20;
+  background: #20c568;
+  color: white;
+  border-radius: 50px;
+  padding: 16px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 5px 20px #0003;
+}
+
+@media (max-width: 800px) {
+  header { flex-direction: column; }
+  nav { justify-content: center; gap: 14px; }
+  .hero { min-height: 500px; padding: 55px 7%; }
+  .datos { grid-template-columns: 1fr; }
+  .menu, .reseñas { grid-template-columns: 1fr; }
+  .contacto { grid-template-columns: 1fr; }
+  .plato img { height: 240px; }
+  section { padding: 55px 6%; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🍕 Pizzería <span>Santomate</span></div>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#menu">Menú</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#resenas">Reseñas</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="hero-content">
+    <div class="etiqueta">El sabor que reúne a la familia</div>
+    <h1>Una buena pizza.<br>Un momento <span>inolvidable.</span></h1>
+    <p>
+      Bienvenido a Pizzería Santomate, tu restaurante familiar
+      en San José del Guaviare. Ven a disfrutar y compartir
+      buenos momentos con quienes más quieres.
+    </p>
+    <div class="botones">
+      <a class="btn btn-rojo" href="#menu">🍕 Descubrir el menú</a>
+      <a class="btn btn-claro" href="#contacto">📍 Cómo llegar</a>
+    </div>
+  </div>
+</section>
+
+<div class="datos">
+  <div class="dato">
+    <strong>⭐ 4.7 / 5</strong>
+    <span>Calificación en Google</span>
+  </div>
+  <div class="dato">
+    <strong>👨‍👩‍👧‍👦 Familiar</strong>
+    <span>Un lugar para compartir</span>
+  </div>
+  <div class="dato">
+    <strong>🛵 A tu manera</strong>
+    <span>Consumo en el local, para llevar y domicilios</span>
+  </div>
+</div>
+
+<section id="menu">
+  <div class="seccion-titulo">
+    <h2>Nuestros favoritos 🍕</h2>
+    <p>Descubre algunas ideas de nuestro menú. Consulta los sabores y precios disponibles por WhatsApp.</p>
+  </div>
+
+  <div class="menu">
+    <article class="plato">
+      <img src="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=800&q=80" alt="Pizza recién horneada" loading="lazy">
+      <div class="plato-info">
+        <h3>Pizza clásica</h3>
+        <p>Una opción tradicional para compartir y disfrutar.</p>
+        <a href="https://wa.me/573103216951?text=Hola%2C%20quiero%20consultar%20los%20sabores%20y%20precios%20de%20las%20pizzas.">Consultar precio ↗</a>
+      </div>
+    </article>
+
+    <article class="plato">
+      <img src="https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?auto=format&fit=crop&w=800&q=80" alt="Pizza con ingredientes variados" loading="lazy">
+      <div class="plato-info">
+        <h3>Pizza especial</h3>
+        <p>Una alternativa deliciosa para quienes quieren probar algo diferente.</p>
+        <a href="https://wa.me/573103216951?text=Hola%2C%20quiero%20informacion%20sobre%20las%20pizzas%20especiales.">Consultar precio ↗</a>
+      </div>
+    </article>
+
+    <article class="plato">
+      <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=800&q=80" alt="Porción de papas fritas" loading="lazy">
+      <div class="plato-info">
+        <h3>Papas fritas 🍟</h3>
+        <p>Un acompañamiento perfecto para completar tu comida.</p>
+        <a href="https://wa.me/573103216951?text=Hola%2C%20quiero%20consultar%20por%20las%20papas%20fritas%20y%20acompanamientos.">Consultar precio ↗</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="nosotros" id="nosotros">
+  <h2>Más que una pizzería ❤️</h2>
+  <p>
+    En Pizzería Santomate queremos que cada visita sea una
+    oportunidad para disfrutar de buena comida y compartir
+    con familia y amigos. Estamos en San José del Guaviare,
+    listos para recibirte.
+  </p>
+  <div class="estrellas">★★★★★</div>
+  <p>Una calificación de 4.7 sobre 5, basada en 20 reseñas reportadas.</p>
+</section>
+
+<section id="resenas">
+  <div class="seccion-titulo">
+    <h2>Lo que dicen nuestros clientes</h2>
+    <p>Opiniones publicadas por clientes del restaurante.</p>
+  </div>
+
+  <div class="reseñas">
+    <article class="reseña">
+      <div class="estrellas">★★★★★</div>
+      <p>“Muy buena atención, la comida es súper deliciosa y el ambiente espectacular y acogedor”.</p>
+      <strong>Gerson Nova</strong>
+    </article>
+
+    <article class="reseña">
+      <div class="estrellas">★★★★★</div>
+      <p>“I loved it, the pizzas are gorgeous”.</p>
+      <strong>Graig Luque</strong>
+    </article>
+
+    <article class="reseña">
+      <div class="estrellas">★★★★☆</div>
+      <p>Consulta las reseñas originales para conocer más experiencias de nuestros visitantes.</p>
+      <a href="https://www.google.com/maps/search/?api=1&query=Pizzeria+Santomate+San+Jose+del+Guaviare" target="_blank" rel="noopener">Ver en Google Maps ↗</a>
+    </article>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="contacto">
+    <div>
+      <h2>¡Te esperamos! 📍</h2>
+      <p><strong>📍 Dirección:</strong><br>Cl. 12 #20-139, San José del Guaviare, Guaviare.</p>
+      <p><strong>📞 Teléfono:</strong><br>310 321 6951</p>
+      <p><strong>🕙 Horario:</strong><br>Horario reportado: hasta las 10:00 p. m. Confirma el horario del día antes de visitarnos.</p>
+      <p><strong>🍽️ Servicios:</strong><br>Consumo en el local, pedidos para llevar y domicilios.</p>
+      <div class="botones">
+        <a class="btn btn-rojo" href="https://wa.me/573103216951?text=Hola%2C%20Pizzeria%20Santomate.%20Quiero%20hacer%20un%20pedido." target="_blank" rel="noopener">Pedir por WhatsApp</a>
+        <a class="btn" style="background:#201d19;color:white" href="https://www.google.com/maps/search/?api=1&query=Pizzeria+Santomate+San+Jose+del+Guaviare" target="_blank" rel="noopener">Abrir mapa</a>
+      </div>
+    </div>
+
+    <iframe
+      class="mapa"
+      title="Ubicación de Pizzería Santomate"
+      src="https://maps.google.com/maps?q=Cl.%2012%20%2320-139%2C%20San%20Jos%C3%A9%20del%20Guaviare&t=&z=16&ie=UTF8&iwloc=&output=embed"
+      loading="lazy"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="logo">🍕 Pizzería <span>Santomate</span></div>
+  <p>El sabor de compartir.</p>
+  <p>San José del Guaviare, Colombia.</p>
+  <p>© <span id="year"></span> Pizzería Santomate. Todos los derechos reservados.</p>
+</footer>
+
+<a class="whatsapp"
+   href="https://wa.me/573103216951?text=Hola%2C%20Pizzeria%20Santomate"
+   target="_blank" rel="noopener"
+   aria-label="Contactar a Pizzería Santomate por WhatsApp">
+  💬 WhatsApp
+</a>
+
+<script>
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+</script>
+
+</body>
+</html>
